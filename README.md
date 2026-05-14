@@ -16,24 +16,15 @@ Updated 10:39
 Refresh
 ```
 
-## 依赖
+## 一键安装
 
 ```bash
-brew install --cask swiftbar
-pip3 install browser-cookie3 --break-system-packages
+curl -fsSL https://raw.githubusercontent.com/lx02918/claude-usage-meter/main/install.sh | bash
 ```
 
-## 安装
+保持 Chrome 或 Safari 登录 claude.ai 即可，无需任何手动配置。
 
-```bash
-# 1. 设置 SwiftBar 插件目录
-defaults write com.ameba.SwiftBar PluginDirectory "/Users/Seth/随便开发/ClaudeMeter-SwiftBar"
-
-# 2. 启动 SwiftBar
-open /Applications/SwiftBar.app
-```
-
-Chrome 或 Safari 保持 claude.ai 登录状态即可，无需任何手动配置。
+**前提**：macOS + [Homebrew](https://brew.sh) + Python 3
 
 ## 文件结构
 
