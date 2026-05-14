@@ -16,27 +16,45 @@ Updated 10:39
 Refresh
 ```
 
+## 前提条件
+
+**macOS 13+** 和以下工具（按顺序装）：
+
+### 1. Homebrew
+
+Homebrew 是 macOS 的包管理器，用来安装后续工具。
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+安装完后按提示把 Homebrew 加入 PATH（Apple Silicon Mac 需要额外一步，安装结束时会有提示）。
+
+### 2. Python 3
+
+macOS 自带的 Python 版本过旧，用 Homebrew 装一个：
+
+```bash
+brew install python3
+```
+
+### 3. 登录 Claude.ai
+
+在 **Chrome 或 Safari** 中登录 [claude.ai](https://claude.ai)，保持登录状态。脚本会自动读取浏览器的认证 Cookie，无需手动操作。
+
+---
+
 ## 一键安装
+
+前提条件满足后，运行：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/lx02918/claude-usage-meter/main/install.sh | bash
 ```
 
-保持 Chrome 或 Safari 登录 claude.ai 即可，无需任何手动配置。
+完成后菜单栏会出现用量显示，每 5 分钟自动刷新。
 
-**前提**：macOS + [Homebrew](https://brew.sh) + Python 3
-
-## 文件结构
-
-```
-ClaudeMeter-SwiftBar/
-└── claude_usage.5m.py    # 主脚本，SwiftBar 每 5 分钟自动执行
-```
-
-运行时缓存：
-```
-~/.config/claudemeter/org_id.txt    # organization UUID 缓存
-```
+---
 
 ## 颜色阈值
 
@@ -60,4 +78,4 @@ ClaudeMeter-SwiftBar/
 |---|---|
 | 菜单栏显示 `⚠ Claude 403` | 在 Chrome 重新登录 claude.ai |
 | org_id 相关报错 | `rm ~/.config/claudemeter/org_id.txt` 再刷新 |
-| 脚本不执行 | 确认 shebang 第一行是 `/opt/homebrew/bin/python3` |
+| 菜单栏只显示文字「claude」| Homebrew python3 路径问题，重新跑一遍安装脚本 |
